@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BethanysPieShopMobile.ContactView"
+             BackgroundImage="patternwide.png">
+    <StackLayout>
+        <Image Source="bethanylogo.png" Style="{StaticResource SmallLogoImageStyle}"></Image>
+        <Label Text="Send us a message" Style="{StaticResource TitleLabelStyle}"></Label>
+        <Editor x:Name="MessageEditor" Style="{StaticResource EditorStyle}">
+            <Editor.Keyboard>
+                <Keyboard x:FactoryMethod="Create">
+                    <x:Arguments>
+                        <KeyboardFlags>Suggestions,Spellcheck</KeyboardFlags>
+                    </x:Arguments>
+                </Keyboard>
+            </Editor.Keyboard>
+            <Editor.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="#32c3ef" />
+                    <On Platform="Android, UWP" Value="#83d5c2" />
+                </OnPlatform>
+            </Editor.BackgroundColor>
+        </Editor>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Should we contact you?"></Label>
+            <Switch x:Name="ContactMeSwitch"  Toggled="ContactMeSwitch_OnToggled"></Switch>
+        </StackLayout>
+        <Button Text="Send" Style="{StaticResource RegularButtonStyle}" x:Name="SendMessageButton" Clicked="SendMessageButton_OnClicked" ></Button>
+    </StackLayout>
+</ContentPage>
